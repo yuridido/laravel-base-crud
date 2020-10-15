@@ -13,8 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/layout', function () {
+    return view('layouts.app');
+});
+
+
+
+Route::get('/aggiungi', function () {
+    return view('aggiungi')->name('add');
 });
 
 Route::resource('games', 'GameController');
