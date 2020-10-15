@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Game;
 
 class GameController extends Controller
 {
@@ -34,8 +35,20 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+
+
+        $gameNew = new Game;
+        $gameNew->nome_gioco =  $data['gioco'];
+        $gameNew->casa_editrice =  $data['casa'];
+        $gameNew->min_gioc =  $data['min'];
+        $gameNew->max_gioc =  $data['max'];
+
+        $gameNew->save();
+        
     }
+
 
     /**
      * Display the specified resource.

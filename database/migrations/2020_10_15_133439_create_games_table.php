@@ -19,6 +19,7 @@ class CreateGamesTable extends Migration
             $table->string('casa_editrice',50);
             $table->smallInteger('min_gioc');
             $table->smallInteger('max_gioc');
+            $table->timestamps();
         });
     }
 
