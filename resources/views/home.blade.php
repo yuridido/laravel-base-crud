@@ -3,24 +3,24 @@
 @section('title', 'Home page')
 
 @section('main')
-@dd($games)
+{{-- @dd($games) --}}
 <div class="container">
-    <table class="table">
-        <thead class="thead-primary">
+    <table class="table table-striped table-light">
+        <thead class="thead thead-dark">
             <tr>
                 <th scope="col">Nome Gioco</th>
                 <th scope="col">Casa Editrice</th>
-                <th scope="col">Minimo Giocatori</th>
-                <th scope="col">Massimo Giocatori</th>
+                <th scope="col" class="text-center">Min</th>
+                <th scope="col" class="text-center">Max</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($games $game)
+            @foreach ($games as $game)
             <tr>
                 <td>{{ $game->nome_gioco }}</td>
                 <td>{{ $game->casa_editrice }}</td>
-                <td>{{ $game->min_gioc }}</td>
-                <td>{{ $game->max_gioc }}</td>
+                <td class="text-center">{{ $game->min_gioc }}</td>
+                <td class="text-center">{{ $game->max_gioc }}</td>
                 <input type="hidden" value="{{ $game->id }}">
 
             </tr>
