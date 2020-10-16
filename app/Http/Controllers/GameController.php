@@ -27,7 +27,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -38,23 +38,23 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        // $data = $request->all();
-        // $request->validate([
-        //     'gioco' => 'required | min:4',
-        //     'casa' => 'required | min:4',
-        // ]);
-        //
-        //
-        // $gameNew = new Game;
-        // $gameNew->nome_gioco =  $data['gioco'];
-        // $gameNew->casa_editrice =  $data['casa'];
-        // $gameNew->min_gioc =  $data['min'];
-        // $gameNew->max_gioc =  $data['max'];
-        //
-        // $gameNew->save();
-        // // $gioco = $gameNew->save();
-        // // return view('show', compact('gameNew'));
-        // return redirect()->route('games.show', compact('gameNew'));
+        $data = $request->all();
+        $request->validate([
+            'gioco' => 'required | min:4',
+            'casa' => 'required',
+        ]);
+
+
+        $gameNew = new Game;
+        $gameNew->nome_gioco =  $data['gioco'];
+        $gameNew->casa_editrice =  $data['casa'];
+        $gameNew->min_gioc =  $data['min'];
+        $gameNew->max_gioc =  $data['max'];
+
+        $gameNew->save();
+        // $gioco = $gameNew->save();
+        // return view('show', compact('gameNew'));
+        return redirect()->route('games.show', compact('gameNew'));
 
     }
 

@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="#">Inserisci</a>
+            <a class="nav-link" href="{{ route('games.create') }}">Inserisci</a>
         </div>
     </div>
 </nav>

@@ -12,6 +12,8 @@
                 <th scope="col">Casa Editrice</th>
                 <th scope="col" class="text-center">Min</th>
                 <th scope="col" class="text-center">Max</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +23,8 @@
                 <td>{{ $game->casa_editrice }}</td>
                 <td class="text-center">{{ $game->min_gioc }}</td>
                 <td class="text-center">{{ $game->max_gioc }}</td>
+                <td><a href="#"><button class="btn btn-secondary" type="button">Modifica</button> </a></td>
+                <td><a href="#"><button class="btn btn-danger" type="button">Elimina</button> </a></td>
                 <input type="hidden" value="{{ $game->id }}">
 
             </tr>
