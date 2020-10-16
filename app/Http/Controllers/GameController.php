@@ -14,7 +14,9 @@ class GameController extends Controller
      */
     public function index()
     {
-        return view('create');
+        $games = Game::all();
+        return view('home', compact('games'));
+
     }
 
     /**
@@ -35,18 +37,24 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        // $data = $request->all();
+        // $request->validate([
+        //     'gioco' => 'required | min:4',
+        //     'casa' => 'required | min:4',
+        // ]);
+        //
+        //
+        // $gameNew = new Game;
+        // $gameNew->nome_gioco =  $data['gioco'];
+        // $gameNew->casa_editrice =  $data['casa'];
+        // $gameNew->min_gioc =  $data['min'];
+        // $gameNew->max_gioc =  $data['max'];
+        //
+        // $gameNew->save();
+        // // $gioco = $gameNew->save();
+        // // return view('show', compact('gameNew'));
+        // return redirect()->route('games.show', compact('gameNew'));
 
-
-
-        $gameNew = new Game;
-        $gameNew->nome_gioco =  $data['gioco'];
-        $gameNew->casa_editrice =  $data['casa'];
-        $gameNew->min_gioc =  $data['min'];
-        $gameNew->max_gioc =  $data['max'];
-
-        $gameNew->save();
-        
     }
 
 
@@ -56,9 +64,10 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Game $game)
     {
-        //
+        // $game = Game::find($id);
+        return view('show', compact('game'));
     }
 
     /**

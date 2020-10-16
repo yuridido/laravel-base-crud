@@ -3,5 +3,37 @@
 @section('title', 'Home page')
 
 @section('main')
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+@dd($games)
+<div class="container">
+    <table class="table">
+        <thead class="thead-primary">
+            <tr>
+                <th scope="col">Nome Gioco</th>
+                <th scope="col">Casa Editrice</th>
+                <th scope="col">Minimo Giocatori</th>
+                <th scope="col">Massimo Giocatori</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($games $game)
+            <tr>
+                <td>{{ $game->nome_gioco }}</td>
+                <td>{{ $game->casa_editrice }}</td>
+                <td>{{ $game->min_gioc }}</td>
+                <td>{{ $game->max_gioc }}</td>
+                <input type="hidden" value="{{ $game->id }}">
+
+            </tr>
+
+            @endforeach
+        </tbody>
+
+
+
+
+
+
+
+
+</div>
 @endsection
