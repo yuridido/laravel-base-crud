@@ -77,9 +77,10 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Game $game)
     {
-        //
+
+        return view('create', compact('game'));
     }
 
     /**
@@ -89,9 +90,9 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Game $game)
     {
-        //
+        return dd($id);
     }
 
     /**

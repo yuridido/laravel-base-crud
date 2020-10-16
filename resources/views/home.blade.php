@@ -5,7 +5,7 @@
 @section('main')
 {{-- @dd($games) --}}
 <div class="container">
-    <table class="table table-striped table-light">
+    <table class="table table-striped table-light mt-3">
         <thead class="thead thead-dark">
             <tr>
                 <th scope="col">Nome Gioco</th>
@@ -23,7 +23,7 @@
                 <td>{{ $game->casa_editrice }}</td>
                 <td class="text-center">{{ $game->min_gioc }}</td>
                 <td class="text-center">{{ $game->max_gioc }}</td>
-                <td><a href="#"><button class="btn btn-secondary" type="button">Modifica</button> </a></td>
+                <td><a href="{{ route('games.edit', $game->id) }}"><button class="btn btn-secondary" type="button">Modifica</button> </a></td>
                 <td><a href="#"><button class="btn btn-danger" type="button">Elimina</button> </a></td>
                 <input type="hidden" value="{{ $game->id }}">
 
