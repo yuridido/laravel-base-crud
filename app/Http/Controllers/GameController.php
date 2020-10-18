@@ -40,21 +40,24 @@ class GameController extends Controller
     {
         $data = $request->all();
         $request->validate([
-            'gioco' => 'required | min:4',
-            'casa' => 'required',
+            'nome_gioco' => 'required | min:4',
+            'casa_editrice' => 'required',
+            'min_gioc' => 'required',
+            'max_gioc' => 'required',
         ]);
 
 
         $gameNew = new Game;
-        $gameNew->nome_gioco =  $data['gioco'];
-        $gameNew->casa_editrice =  $data['casa'];
-        $gameNew->min_gioc =  $data['min'];
-        $gameNew->max_gioc =  $data['max'];
+        $gameNew->fill($data);
+        // $gameNew->nome_gioco =  $data['nome_gioco'];
+        // $gameNew->casa_editrice =  $data['casa_editrice'];
+        // $gameNew->min_gioc =  $data['min_gioc'];
+        // $gameNew->max_gioc =  $data['max_gioc'];
 
         $gameNew->save();
         // $gioco = $gameNew->save();
         // return view('show', compact('gameNew'));
-        return redirect()->route('games.show', compact('gameNew'));
+        return redirect()->route('games.show', $gameNew);
 
     }
 
