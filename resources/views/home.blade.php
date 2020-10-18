@@ -21,9 +21,15 @@
                 <td>{{ $game->casa_editrice }}</td>
                 <td>{{ $game->min_gioc }}</td>
                 <td>{{ $game->max_gioc }}</td>
-                <td><a href="{{ route('games.edit', $game) }}"><button type="button" class="btn btn-secondary">Modifica</button></a></td>
-                <td><a href="#"><button type="button" class="btn btn-secondary">Elimina</button></a></td>
-                <input type="hidden" value="{{ $game->id }}">
+                <td><a href="{{ route('games.edit', $game->id) }}"><button type="button" class="btn btn-secondary">Modifica</button></a></td>
+                <td>
+                    <form action="{{ route('games.destroy', $game) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" class="btn btn-danger" value="Delete">
+                    </form>
+                </td>
+
 
             </tr>
 

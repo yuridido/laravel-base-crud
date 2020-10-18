@@ -95,7 +95,15 @@ class GameController extends Controller
      */
     public function update(Request $request, Game $game)
     {
-        return dd($id);
+        $data = $request->all();
+        $request->validate([
+            'nome_gioco' => 'required | min:4',
+            'casa_editrice' => 'required',
+            'min_gioc' => 'required',
+            'max_gioc' => 'required',
+        ]);
+        $game->update($data);
+        return view('show', compact('game'));
     }
 
     /**
@@ -104,8 +112,9 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Game $game)
     {
-        //
+        $game->delete();
+        return redirect()->route('games.index');
     }
 }
